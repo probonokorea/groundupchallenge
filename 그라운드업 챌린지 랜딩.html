@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 그라운드업 챌린지 | 프로보노국제협력재단 × LX하우시스</title>
+<meta name="description" content="청소년 시설 비온돌 공간에 친환경 바닥재를 무상지원하는 그라운드업 챌린지 — 수혜단체, 수행기관, 봉사자를 모집합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif+KR:wght@600;700&family=Gothic+A1:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --navy:#2A2725;
+    --deep:#3D3734;
+    --green:#987A72;
+    --green-hover:#7E635C;
+    --green-light:#CDB6AC;
+    --terracotta:#B86B53;
+    --gray:#6B6661;
+    --offwhite:#F7F5F0;
+    --line:#E3DFD7;
+    --hero-bg:linear-gradient(135deg,#2A2725 0%,#3D3734 60%,#987A72 100%);
+    --hero-fg:#FFFFFF;
+    --hero-sub:rgba(255,255,255,0.75);
+    --hero-eyebrow:#CDB6AC;
+    --hero-chip-bg:rgba(255,255,255,0.06);
+    --hero-chip-br:rgba(255,255,255,0.16);
+    --card-bg:#FFFFFF;
+    --card-br:1px solid #E3DFD7;
+    --card-sh:none;
+    --radius:16px;
+    --btn-radius:10px;
+    --maxw:960px;
+    --pad-section:96px;
+    --gap:32px;
+    --lh:1.8;
+    --font-head:'Pretendard',-apple-system,sans-serif;
+    --grid-min:240px;
+    --label-color:#987A72;
+    --dur:.3s;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:#fff;color:var(--navy);overflow-x:hidden;font-family:'Pretendard',-apple-system,sans-serif;padding-bottom:78px;}
+  img{max-width:100%;display:block;}
+  a{color:var(--green);}
+  a:hover{color:var(--green-hover);}
+  h1,h2,h3{text-wrap:balance;}
+  button{font-family:inherit;}
+  :focus-visible{outline:2px solid var(--green);outline-offset:2px;}
+
+  @keyframes gu-pulse{
+    0%{box-shadow:0 0 0 0 rgba(152,122,114,0.55);}
+    70%{box-shadow:0 0 0 14px rgba(152,122,114,0);}
+    100%{box-shadow:0 0 0 0 rgba(152,122,114,0);}
+  }
+  @keyframes float-y{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-9px);}
+  }
+  .float{animation:float-y 6s ease-in-out infinite;}
+
+  /* ---------- scroll reveal ---------- */
+  .reveal{
+    opacity:0;transform:translateY(28px);
+    transition:opacity .7s var(--ease),transform .7s var(--ease);
+  }
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .pulse{animation:none !important;}
+    .float{animation:none !important;}
+    .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
+    *{transition-duration:.01ms !important;}
+  }
+
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 clamp(24px,5vw,60px);}
+  .section{width:100%;}
+  .label{
+    display:block;font-size:14px;font-weight:600;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--label-color);margin-bottom:14px;width:fit-content;
+  }
+  h2.heading{
+    font-family:var(--font-head);font-size:clamp(24px,2.7vw,28px);font-weight:700;
+    letter-spacing:-0.01em;line-height:1.4;color:var(--navy);
+  }
+
+  /* ---------- hero ---------- */
+  #hero{background:var(--hero-bg);padding:clamp(56px,6vw,84px) 0;}
+  .hero-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:clamp(28px,4vw,48px);align-items:center;
+  }
+  .hero-eyebrow{font-size:17px;color:var(--hero-eyebrow);font-weight:600;letter-spacing:0.06em;margin-bottom:14px;}
+  .hero-title{
+    font-family:var(--font-head);font-size:clamp(27px,4vw,40px);font-weight:800;
+    letter-spacing:-0.02em;line-height:1.25;color:var(--hero-fg);margin-bottom:18px;
+  }
+  .hero-sub{font-size:clamp(15px,1.5vw,16.5px);line-height:1.7;color:var(--hero-sub);margin-bottom:26px;}
+  .hero-badge-row{
+    display:inline-flex;align-items:center;gap:12px;background:#fff;border-radius:10px;
+    padding:9px 18px;box-shadow:0 8px 24px rgba(0,0,0,0.18);margin-bottom:26px;
+  }
+  .logo-img{background-repeat:no-repeat;background-position:center;background-size:contain;display:inline-block;}
+  .logo-probono{width:82px;height:20px;}
+  .logo-lx{width:92px;height:15px;}
+  .hero-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+  .hero-chip{
+    display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--hero-chip-bg);
+    border:1px solid var(--hero-chip-br);border-radius:10px;
+  }
+  .hero-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;}
+  .hero-chip span.txt{font-size:13px;font-weight:600;color:var(--hero-fg);}
+  .hero-photo-frame{
+    min-width:0;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;
+    background:rgba(255,255,255,0.08);border:1px solid var(--hero-chip-br);
+  }
+  .hero-photo-frame img{width:100%;height:100%;object-fit:cover;}
+  .hero-photo-frame.float{animation-duration:7s;}
+
+  /* ---------- about ---------- */
+  #about{background:#fff;padding:var(--pad-section) 0;}
+  .about-block + .about-block{margin-top:36px;}
+  .about-lede{font-size:clamp(16px,1.6vw,17px);line-height:var(--lh);color:var(--gray);margin-top:16px;}
+  .about-lede strong.hl{color:var(--green);font-weight:700;}
+  .value-list{display:flex;flex-direction:column;margin-top:12px;}
+  .value-row{display:flex;gap:18px;padding:22px 0;border-top:1px solid var(--line);align-items:baseline;}
+  .value-row:last-child{border-bottom:1px solid var(--line);}
+  .value-num{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--green);flex-shrink:0;width:36px;}
+  .value-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+  .value-desc{font-size:14.5px;line-height:1.7;color:var(--gray);}
+
+  /* ---------- criteria ---------- */
+  #criteria{background:var(--offwhite);padding:var(--pad-section) 0 var(--gap);}
+  .criteria-head{padding-bottom:28px;}
+  .criteria-head h2{margin-top:0;}
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(var(--grid-min),1fr));gap:18px;}
+  .criteria-card{
+    background:var(--card-bg);border:var(--card-br);box-shadow:var(--card-sh);
+    border-radius:var(--radius);padding:28px 24px;display:flex;flex-direction:column;
+  }
+  .icon-tile{
+    width:52px;height:52px;border-radius:12px;background:var(--offwhite);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;flex-shrink:0;
+  }
+  .icon-tile svg{width:24px;height:24px;stroke:var(--green);}
+  .card-eyebrow{font-size:14px;font-weight:600;letter-spacing:0.12em;color:var(--label-color);margin-bottom:8px;}
+  .criteria-card h3{font-size:18px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:10px;}
+  .criteria-card p{font-size:14px;line-height:1.7;color:var(--gray);flex-grow:1;}
+  .criteria-card strong{color:var(--green-hover);}
+
+  /* ---------- impact ---------- */
+  #impact{background:var(--offwhite);padding:var(--gap) 0;}
+  .impact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:12px;}
+  .impact-card{background:var(--card-bg);border:var(--card-br);box-shadow:var(--card-sh);border-radius:12px;padding:22px 20px;}
+  .impact-card .impact-title{font-size:16px;font-weight:700;color:var(--green-hover);margin-bottom:8px;}
+  .impact-card .impact-item{font-size:13.5px;line-height:1.65;color:var(--gray);}
+  @media (max-width:560px){.impact-grid{grid-template-columns:1fr;}}
+
+  /* ---------- self check ---------- */
+  #self-check{background:var(--offwhite);padding:var(--gap) 0 var(--pad-section);}
+  .check-card{background:#fff;border:1.5px solid var(--green);border-radius:14px;padding:24px;margin-top:20px;}
+  .check-prompt{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px;}
+  .check-prompt span{color:var(--green);}
+  .check-row{
+    display:flex;align-items:flex-start;gap:12px;padding:12px 0;cursor:pointer;
+    background:none;border:none;border-top:1px dashed var(--line);width:100%;text-align:left;
+  }
+  .check-row:first-of-type{border-top:none;}
+  .check-box{
+    width:20px;height:20px;flex-shrink:0;margin-top:1px;border:1.5px solid #D9D0C6;border-radius:5px;
+    background:transparent;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease);
+    display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700;
+  }
+  .check-row[aria-pressed="true"] .check-box{border-color:var(--green);background:var(--green);}
+  .check-row[aria-pressed="true"] .check-box::after{content:"✓";}
+  .check-label{font-size:14.5px;color:var(--navy);line-height:1.6;}
+  .check-result{
+    margin-top:16px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:14px;font-weight:600;color:var(--gray);
+  }
+  .check-result.pass{color:var(--green);}
+
+  /* ---------- materials ---------- */
+  #materials{background:#fff;padding:var(--pad-section) 0 var(--gap);}
+  .materials-intro{padding-bottom:24px;}
+  .materials-intro p{font-size:clamp(16px,1.6vw,17px);line-height:var(--lh);color:var(--gray);margin-top:14px;}
+  .material-card{
+    background:var(--card-bg);border:var(--card-br);box-shadow:var(--card-sh);border-radius:14px;
+    padding:22px 20px 24px;display:flex;flex-direction:column;
+  }
+  .material-thumb{
+    width:100%;height:104px;border-radius:10px;margin-bottom:16px;display:flex;
+    align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .material-thumb svg{width:52px;height:52px;}
+  .material-card:nth-child(1) .material-thumb svg.float{animation-duration:5.5s;}
+  .material-card:nth-child(2) .material-thumb svg.float{animation-duration:5.5s;animation-delay:.7s;}
+  .material-card:nth-child(3) .material-thumb svg.float{animation-duration:5.5s;animation-delay:1.4s;}
+  .material-num{font-family:'Bebas Neue',sans-serif;font-size:15px;color:var(--green);margin-bottom:6px;}
+  .material-card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+  .material-card p{font-size:13.5px;line-height:1.65;color:var(--gray);margin-bottom:14px;flex-grow:1;}
+  .material-tag{
+    display:inline-flex;align-self:flex-start;font-size:11.5px;font-weight:700;color:var(--green-hover);
+    background:rgba(152,122,114,0.1);border:1px solid rgba(152,122,114,0.35);padding:5px 10px;border-radius:20px;
+  }
+  .carousel-frame{
+    max-width:var(--maxw);margin:20px auto 0;background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius);padding:20px;overflow:hidden;
+  }
+  .carousel-viewport{width:100%;aspect-ratio:16/7;border-radius:12px;overflow:hidden;background:var(--offwhite);}
+  .carousel-viewport img{width:100%;height:100%;object-fit:cover;}
+  .carousel-controls{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:20px;}
+  .carousel-arrow{
+    width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--navy);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease),
+      transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
+  }
+  .carousel-arrow:hover{background:var(--offwhite);border-color:var(--green);transform:scale(1.1);box-shadow:0 8px 18px rgba(42,39,37,0.16);}
+  .carousel-arrow svg{width:18px;height:18px;stroke:currentColor;}
+  .carousel-dots{display:flex;gap:8px;}
+  .carousel-dot{
+    width:7px;height:7px;border-radius:50%;border:none;padding:0;cursor:pointer;background:var(--line);
+    transition:transform var(--dur) var(--ease),background var(--dur) var(--ease);
+  }
+  .carousel-dot[aria-current="true"]{background:var(--green);transform:scale(1.3);}
+
+  /* ---------- space preview ---------- */
+  #space-preview{background:#fff;padding:var(--gap) 0;}
+  .space-preview-intro{padding-bottom:24px;}
+  .ba-row{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;}
+  .ba-frame{flex:1 1 280px;aspect-ratio:4/3;border-radius:14px;overflow:hidden;position:relative;background:var(--offwhite);}
+  .ba-frame img{width:100%;height:100%;object-fit:cover;}
+  .ba-tag{
+    position:absolute;top:14px;left:14px;font-family:'Bebas Neue',sans-serif;font-size:13px;
+    letter-spacing:0.08em;padding:5px 12px;border-radius:20px;color:#fff;z-index:2;
+  }
+  .ba-tag.before{background:rgba(42,39,37,0.75);}
+  .ba-tag.after{background:var(--green);}
+  .ba-arrow{flex-shrink:0;display:flex;align-items:center;justify-content:center;width:44px;color:var(--green);}
+  .ba-arrow svg{width:26px;height:26px;}
+  .ba-caption{margin-top:18px;font-size:13px;line-height:1.7;color:var(--gray);text-align:center;}
+  @media (max-width:640px){.ba-arrow{width:100%;transform:rotate(90deg);padding:4px 0;}}
+
+  /* ---------- expected effect timeline ---------- */
+  #expected-effect{background:#fff;padding:var(--gap) 0 var(--pad-section);}
+  .timeline{margin-top:20px;}
+  .timeline-item{position:relative;padding:0 0 36px 30px;border-left:2px solid #D9D0C6;}
+  .timeline-item:last-child{padding-bottom:0;}
+  .timeline-item::before{
+    content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;
+    background:var(--green);border:3px solid #fff;box-shadow:0 0 0 2px #D9D0C6;
+  }
+  .timeline-num{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--green);margin-bottom:4px;}
+  .timeline-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+  .timeline-desc{font-size:14.5px;line-height:1.7;color:var(--gray);}
+
+  /* ---------- overview ---------- */
+  #overview{background:var(--offwhite);padding:var(--pad-section) 0 var(--gap);}
+  .overview-list{display:flex;flex-direction:column;margin-top:12px;}
+  .overview-row{padding:20px 0;border-top:1px solid var(--line);}
+  .overview-key{font-size:12px;font-weight:700;color:var(--navy);opacity:.55;margin-bottom:6px;}
+  .overview-val{font-size:15.5px;font-weight:500;color:var(--navy);line-height:1.6;}
+  .overview-val strong{color:var(--green);font-weight:700;}
+  .overview-val .muted{opacity:.6;}
+
+  /* ---------- process ---------- */
+  #process{background:var(--offwhite);padding:var(--gap) 0;}
+  .process-head{padding-bottom:28px;}
+  .step-card{
+    background:var(--card-bg);border:var(--card-br);box-shadow:var(--card-sh);border-radius:14px;
+    padding:24px 22px;display:flex;flex-direction:column;
+  }
+  .step-top{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .step-icon{
+    width:44px;height:44px;border-radius:10px;background:var(--offwhite);display:flex;
+    align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .step-icon svg{width:22px;height:22px;stroke:var(--green);}
+  .step-badge{
+    flex-shrink:0;padding:5px 12px;border-radius:20px;background:var(--green);color:#fff;
+    font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:0.04em;white-space:nowrap;
+    height:22px;display:inline-flex;align-items:center;
+  }
+  .step-card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+  .step-card p{font-size:13.5px;line-height:1.65;color:var(--gray);}
+
+  /* ---------- notice ---------- */
+  #notice{background:var(--offwhite);padding:var(--gap) 0;}
+  .notice-list{margin-top:12px;}
+  .notice-row{display:flex;gap:14px;padding:18px 0;border-top:1px solid var(--line);}
+  .notice-row:last-child{border-bottom:1px solid var(--line);}
+  .notice-mark{
+    flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#F3E7E1;color:var(--terracotta);
+    display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;
+  }
+  .notice-row p{font-size:14.5px;line-height:1.7;color:var(--navy);padding-top:2px;}
+  .notice-row strong{color:var(--green);font-weight:700;}
+
+  /* ---------- faq ---------- */
+  #faq{background:var(--offwhite);padding:var(--gap) 0 var(--pad-section);}
+  .faq-list{margin-top:12px;}
+  .faq-item{border-top:1px solid var(--line);}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%;background:none;border:none;text-align:left;padding:20px 0;display:flex;
+    justify-content:space-between;align-items:center;cursor:pointer;font-family:inherit;
+  }
+  .faq-q span.q-text{font-size:15.5px;font-weight:600;color:var(--navy);padding-right:16px;}
+  .faq-mark{flex-shrink:0;font-size:20px;color:var(--green);font-weight:300;transition:transform var(--dur) var(--ease);}
+  .faq-q[aria-expanded="true"] .faq-mark{transform:rotate(45deg);}
+  .faq-a{font-size:14.5px;line-height:1.75;color:var(--gray);padding:0 36px 20px 0;}
+  .faq-a[hidden]{display:none;}
+
+  /* ---------- apply ---------- */
+  #apply{padding:var(--pad-section) 0;background:linear-gradient(135deg,var(--navy) 0%,var(--deep) 60%,var(--green) 100%);}
+  .apply-head{padding-bottom:36px;text-align:center;}
+  .apply-head .label{color:var(--green-light);margin:0 auto 14px;}
+  .apply-head h2{
+    font-family:var(--font-head);font-size:clamp(34px,4vw,40px);font-weight:800;letter-spacing:-0.02em;
+    line-height:1.35;color:#fff;text-align:center;
+  }
+  .apply-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;align-items:stretch;}
+  .apply-card{border-radius:var(--radius);padding:28px 24px;display:flex;flex-direction:column;}
+  .apply-card.beneficiary{background:rgba(255,255,255,0.06);border:1px solid rgba(205,182,172,0.45);}
+  .apply-card.partner{background:rgba(255,255,255,0.04);border:1px solid rgba(185,203,221,0.42);}
+  .part-tag{
+    display:inline-flex;align-self:flex-start;font-family:'Bebas Neue',sans-serif;font-size:13px;
+    letter-spacing:0.08em;padding:5px 12px;border-radius:999px;color:#fff;margin-bottom:16px;
+  }
+  .apply-card.beneficiary .part-tag{background:var(--green);}
+  .apply-card.partner .part-tag{background:#5B7793;}
+  .apply-card h3{font-family:var(--font-head);font-size:21px;font-weight:700;line-height:1.4;color:#fff;margin-bottom:10px;}
+  .apply-card > p{font-size:14.5px;line-height:1.7;color:rgba(255,255,255,0.78);padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,0.16);}
+  .doc-list-label{display:block;font-size:12.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;padding-top:22px;}
+  .apply-card.beneficiary .doc-list-label{color:var(--green-light);}
+  .apply-card.partner .doc-list-label{color:#B9CBDD;}
+  .doc-list{flex-grow:1;}
+  .doc-row{display:flex;gap:10px;padding:13px 0;border-top:1px solid rgba(255,255,255,0.14);font-size:14px;color:rgba(255,255,255,0.85);line-height:1.6;}
+  .doc-num{font-family:'Bebas Neue',sans-serif;font-size:13px;flex-shrink:0;}
+  .apply-card.beneficiary .doc-num{color:var(--green-light);}
+  .apply-card.partner .doc-num{color:#B9CBDD;}
+  .btn-solid{
+    display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;margin-top:22px;width:100%;
+    text-align:center;text-decoration:none;font-weight:700;border-radius:var(--btn-radius);padding:16px 18px;
+    font-size:15px;background:var(--green);color:#fff;
+    transition:background var(--dur) var(--ease),transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
+  }
+  .btn-solid:hover{background:var(--green-hover);color:#fff;transform:scale(1.035);box-shadow:0 14px 30px rgba(126,99,92,0.4);}
+  .btn-outline-blue{
+    display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;margin-top:22px;width:100%;
+    text-align:center;text-decoration:none;font-weight:700;border-radius:var(--btn-radius);padding:16px 18px;
+    font-size:15px;background:transparent;color:#fff;border:2px solid #8AA3BC;
+    transition:background var(--dur) var(--ease),transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
+  }
+  .btn-outline-blue:hover{background:rgba(138,163,188,0.18);color:#fff;transform:scale(1.035);box-shadow:0 14px 30px rgba(138,163,188,0.3);}
+  .cta-icon{display:inline-flex;flex-shrink:0;transition:transform var(--dur) var(--ease);}
+  .btn-solid:hover .cta-icon,.btn-outline-blue:hover .cta-icon,.btn-white:hover .cta-icon{transform:translateX(4px);}
+  .apply-foot{margin-top:24px;text-align:center;font-size:13.5px;line-height:1.75;color:rgba(255,255,255,0.7);}
+  .pulse{animation:gu-pulse 1.5s infinite;}
+
+  /* ---------- challenger ---------- */
+  #challenger{padding:0 0 var(--pad-section);background:linear-gradient(180deg,var(--deep) 0%,var(--navy) 100%);}
+  .challenger-head{padding:clamp(56px,6vw,84px) 0 36px;text-align:center;}
+  .challenger-eyebrow{
+    display:inline-block;max-width:min(100%,34ch);font-size:12.5px;font-weight:700;letter-spacing:0.1em;
+    line-height:1.4;text-align:center;text-transform:uppercase;color:#fff;background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.32);padding:8px 16px;border-radius:999px;margin-bottom:18px;
+  }
+  .challenger-head h2{
+    font-family:var(--font-head);font-size:clamp(28px,3.6vw,38px);font-weight:800;letter-spacing:-0.02em;
+    line-height:1.35;color:#fff;margin-bottom:16px;
+  }
+  .challenger-head p{font-size:clamp(14.5px,1.5vw,16px);line-height:1.75;color:#fff;max-width:56ch;margin:0 auto;}
+  .challenger-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+  .challenger-step{
+    background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius);
+    padding:26px 22px;backdrop-filter:blur(6px);display:flex;flex-direction:column;
+  }
+  .challenger-step .step-badge{background:rgba(255,255,255,0.16);font-size:12px;}
+  .challenger-step .c-title{font-size:18px;font-weight:700;color:#fff;line-height:1.4;margin:10px 0;}
+  .challenger-step .c-desc{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.78);}
+  .recruit-box{
+    margin-top:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.22);
+    border-radius:var(--radius);padding:clamp(24px,3vw,34px) clamp(22px,3vw,30px);backdrop-filter:blur(6px);
+  }
+  .recruit-title{display:block;font-size:12.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green-light);margin-bottom:18px;}
+  .recruit-row{display:flex;flex-wrap:wrap;gap:8px 24px;padding:16px 0;border-top:1px solid rgba(255,255,255,0.16);}
+  .recruit-key{flex:0 0 128px;font-size:13.5px;font-weight:600;color:rgba(255,255,255,0.55);}
+  .recruit-val{flex:1 1 240px;min-width:0;font-size:15px;color:#fff;line-height:1.65;}
+  .recruit-val ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .recruit-val ul li{display:flex;gap:10px;}
+  .recruit-val ul li::before{content:"·";color:var(--green-light);flex-shrink:0;}
+  .recruit-sub{display:block;font-size:13px;color:var(--green-light);font-weight:600;margin-bottom:2px;}
+  .recruit-cta-wrap{margin-top:26px;display:flex;flex-direction:column;align-items:center;}
+  .btn-white{
+    display:flex;align-items:center;justify-content:center;gap:8px;min-height:58px;width:100%;max-width:440px;
+    text-align:center;text-decoration:none;font-weight:700;border-radius:var(--btn-radius);padding:16px 20px;
+    font-size:15px;background:#fff;color:var(--navy);
+    transition:background var(--dur) var(--ease),transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
+  }
+  .btn-white:hover{background:var(--green-light);color:var(--navy);transform:scale(1.035);box-shadow:0 14px 30px rgba(0,0,0,0.32);}
+
+  /* ---------- footer ---------- */
+  #contact{width:100%;background:var(--navy);padding:64px 0 60px;}
+  .footer-logos{display:flex;gap:28px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.12);margin-bottom:32px;}
+  .footer-logo-col{flex:1 1 160px;}
+  .footer-logo-badge{background:#fff;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;padding:10px 14px;margin-bottom:12px;}
+  .footer-role{font-size:11px;color:var(--green-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;font-weight:600;}
+  .footer-org{font-size:16px;color:#fff;font-weight:700;}
+  .footer-info{padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.12);margin-bottom:24px;}
+  .footer-info-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;font-size:13.5px;flex-wrap:wrap;}
+  .footer-info-row span:first-child{color:rgba(255,255,255,0.5);flex-shrink:0;}
+  .footer-info-row span:last-child{color:#fff;font-weight:500;text-align:right;}
+  .footer-fine{font-size:12px;color:rgba(255,255,255,0.4);}
+
+  /* ---------- sticky bar ---------- */
+  #sticky-bar{
+    position:fixed;left:0;right:0;bottom:0;width:100%;background:var(--navy);border-top:1px solid rgba(255,255,255,0.14);
+    padding:14px clamp(24px,5vw,60px);display:flex;align-items:center;justify-content:center;gap:24px;
+    z-index:300;box-shadow:0 -6px 20px rgba(0,0,0,0.25);flex-wrap:wrap;
+  }
+  #sticky-bar .msg{font-size:16px;color:rgba(255,255,255,0.85);font-weight:500;}
+  #sticky-bar .msg b{color:var(--green-light);}
+  #sticky-bar .actions{display:flex;gap:8px;flex-shrink:0;}
+  .sbar-btn{
+    padding:10px 16px;border-radius:var(--btn-radius);font-size:13px;font-weight:700;text-decoration:none;
+    white-space:nowrap;height:40px;display:inline-flex;align-items:center;
+    transition:background var(--dur) var(--ease),transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
+  }
+  .sbar-btn:hover{transform:scale(1.06);box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+  .sbar-btn.a{background:var(--green);color:#fff;}
+  .sbar-btn.a:hover{background:var(--green-hover);color:#fff;}
+  .sbar-btn.b{color:#fff;background:rgba(91,119,147,0.30);border:1px solid transparent;}
+  .sbar-btn.b:hover{background:rgba(91,119,147,0.45);color:#fff;}
+  .sbar-btn.c{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);}
+  .sbar-btn.c:hover{background:rgba(255,255,255,0.08);color:#fff;}
+
+  @media (max-width:520px){
+    #sticky-bar .msg{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section id="hero" class="section">
+  <div class="wrap hero-grid">
+    <div style="min-width:0;">
+      <div class="hero-eyebrow">희망을 딛고 일상을 더 단단하게</div>
+      <h1 class="hero-title">2026 GLOBAL<br>GROUND UP CHALLENGE</h1>
+      <p class="hero-sub">청소년이 머무는 공간, 바닥부터 다시 채워주세요<br>바닥재 지원사업에 함께할 수행기관, 수혜단체, 봉사자를 모집합니다</p>
+
+      <div class="hero-badge-row">
+        <span role="img" aria-label="프로보노국제협력재단 로고" class="logo-img logo-probono" style="background-image:url('https://cdn.imweb.me/thumbnail/20260909/3da8d05323ac8.png');"></span>
+      </div>
+      <div class="hero-chips">
+        <div class="hero-chip"><span class="dot"></span><span class="txt">챌린지 사업 취지</span></div>
+        <div class="hero-chip"><span class="dot"></span><span class="txt">챌린지 지원 대상</span></div>
+        <div class="hero-chip"><span class="dot"></span><span class="txt">챌린지 제품 소개</span></div>
+        <div class="hero-chip"><span class="dot"></span><span class="txt">챌린지 모집 안내</span></div>
+      </div>
+    </div>
+    <div class="hero-photo-frame float">
+      <img src="https://cdn.imweb.me/thumbnail/20260909/f1ebff52195f9.png" alt="시공 완료된 청소년 시설 공간" width="401" height="501" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section">
+  <div class="wrap">
+    <div class="about-block reveal">
+      <span class="label">ABOUT CHALLENGE</span>
+      <h2 class="heading">매일 딛는 바닥, 내일 잇는 공간</h2>
+      <p class="about-lede">LX하우시스의 친환경 바닥재를 <strong class="hl">복지·돌봄 시설과</strong> 연계해, 프리미엄 바닥재를 지원합니다.<br>현장 협력 시공으로 바닥을 채우고 공간을 개선하는 사업입니다.</p>
+    </div>
+    <div class="about-block">
+      <span class="label">CORE VALUE</span>
+      <h2 class="heading">이 사업이 지키는<br>세 가지 기준</h2>
+      <div class="value-list">
+        <div class="value-row reveal">
+          <span class="value-num">01</span>
+          <div>
+            <div class="value-title">일상을 멈추지 않고 딛는 배려</div>
+            <div class="value-desc">쉴 곳을 옮겨야 하는 번거로움이 공간 개선의 장벽이 되지 않도록<br>안전한 시공 방식을 택해 시설의 소중한 하루를 조용히 응원합니다</div>
+          </div>
+        </div>
+        <div class="value-row reveal">
+          <span class="value-num">02</span>
+          <div>
+            <div class="value-title">복지와 돌봄의 시간을 이어가는 든든함</div>
+            <div class="value-desc">복지와 돌봄의 세월의 흔적이 짙게 담긴 기존 바닥의 헌신을 기억하고 그 자리를 대신해<br>더 오래갈 수 있는 튼튼한 바닥으로 교체하여 복지와 돌봄의 역할을 변함없이 지속합니다.</div>
+          </div>
+        </div>
+        <div class="value-row reveal">
+          <span class="value-num">03</span>
+          <div>
+            <div class="value-title">누구에게나 당당한 삶의 품격</div>
+            <div class="value-desc">'지원 받는 시설'이라는 이유로 소박함에 머물지 않도록 디자인 하나에도 정성을 담아,<br>이곳을 드나드는 모든 이들의 자부심이 되도록 합니다.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CRITERIA ===== -->
+<section id="criteria" class="section">
+  <div class="wrap criteria-head">
+    <span class="label">AREA</span>
+    <h2 class="heading">시공전 필수<br>기준을 확인해주세요.</h2>
+  </div>
+  <div class="wrap card-grid">
+    <div class="criteria-card reveal">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="11" rx="1"></rect><path d="M3 9l9-6 9 6"></path><line x1="3" y1="20" x2="21" y2="20"></line></svg></div>
+      <span class="card-eyebrow">기준 01</span>
+      <h3>수혜단체 신청자격</h3>
+      <p>차별 없는 포용과 안전한 환경 조성을 위해, 올해는 아동·청소년 및 이주민의 주 활동 공간과 공용거점으로 운영되는 시설에 한해 신청을 접수합니다.</p>
+    </div>
+    <div class="criteria-card reveal">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
+      <span class="card-eyebrow">기준 02</span>
+      <h3>비온돌 바닥재 조건 확인</h3>
+      <p>온돌, 난방 코일, 전기 패널이 없는 <strong>비난방 바닥</strong>만 지원 대상입니다. 복도, 강당, 다목적실, 식당, 창고 등 공용 거점이 해당됩니다.</p>
+    </div>
+    <div class="criteria-card reveal">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+      <span class="card-eyebrow">기준 03</span>
+      <h3>고급 바닥재 전문가 시공</h3>
+      <p>단순 자재 전달은 불가하며, 시공전문가의 도움으로 <strong>현장 협력 시공</strong>만 지원됩니다. 더불어 시설 봉사자 및 관계자는 현장을 준비 합니다. (집기 이동, 청소 등)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IMPACT AREA ===== -->
+<section id="impact" class="section">
+  <div class="wrap">
+    <span class="label">IMPACT AREA</span>
+    <h2 class="heading">이런 공간에<br>바닥재를 전달합니다.</h2>
+    <div class="impact-grid">
+      <div class="impact-card reveal">
+        <div class="impact-title">청소년 주거 및 생활 환경 개선</div>
+        <div class="impact-item">공동생활가정(그룹홈) 및 자립생활관</div>
+        <div class="impact-item">취약계층·위기가정 노후 주택</div>
+        <div class="impact-item">원거리 통학 기숙사 및 생활관</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-title">청소년 커뮤니티 및 공용 공간</div>
+        <div class="impact-item">수련관 및 문화의집</div>
+        <div class="impact-item">방과후아카데미 전용 공간</div>
+        <div class="impact-item">유스호스텔 및 야영장</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-title">청소년 진로 및 상담 특화 공간</div>
+        <div class="impact-item">학교밖지원센터(꿈드림) 및 대안교육위탁기관</div>
+        <div class="impact-item">상담복지센터 및 치료재활센터(디딤센터)</div>
+        <div class="impact-item">특화시설(메이커·미디어센터) 및 진로체험지원센터</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-title">긴급 구호 및 임시 거주 시설</div>
+        <div class="impact-item">일시·단기·중장기 쉼터</div>
+        <div class="impact-item">자립지원관 및 회복지원시설</div>
+        <div class="impact-item">이동형 일시쉼터(거리상담 버스)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SELF CHECK ===== -->
+<section id="self-check" class="section">
+  <div class="wrap">
+    <span class="label">SELF CHECK</span>
+    <h2 class="heading">우리 공간이<br>대상인지 확인해보세요.</h2>
+    <div class="check-card reveal">
+      <div class="check-prompt">기관이 아래 <span>3가지</span>에 해당되시나요?</div>
+      <button type="button" class="check-row" data-check="0" aria-pressed="false">
+        <span class="check-box" aria-hidden="true"></span>
+        <span class="check-label">온돌, 보일러 배관, 전기 패널이 없는 비난방 바닥인가요?</span>
+      </button>
+      <button type="button" class="check-row" data-check="1" aria-pressed="false">
+        <span class="check-box" aria-hidden="true"></span>
+        <span class="check-label">복도, 다목적실, 강당, 식당, 창고 등 공용 거점 공간인가요?</span>
+      </button>
+      <button type="button" class="check-row" data-check="2" aria-pressed="false">
+        <span class="check-box" aria-hidden="true"></span>
+        <span class="check-label">시공 당일 자재 운반 및 바닥 청소를 보조할 인력 배치가 가능한가요?</span>
+      </button>
+      <div id="check-result" class="check-result">체크박스를 눌러 대상 여부를 확인해보세요.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MATERIALS ===== -->
+<section id="materials" class="section">
+  <div class="wrap materials-intro">
+    <span class="label">MATERIAL</span>
+    <h2 class="heading">실제 시공되는<br>친환경 바닥재입니다.</h2>
+    <p>현장 규격과 질감이 서로 다른 세 가지 자재군을 상황에 맞춰 매칭해 드립니다.</p>
+  </div>
+  <div class="wrap card-grid" style="--grid-min:240px;">
+    <div class="material-card reveal">
+      <div class="material-thumb" style="background:linear-gradient(135deg,#EFE8E1 0%,#DCCFC4 100%);">
+        <svg class="float" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--green);"><rect x="3" y="3" width="8" height="8" rx="0.6"></rect><rect x="13" y="3" width="8" height="8" rx="0.6"></rect><rect x="3" y="13" width="8" height="8" rx="0.6"></rect><rect x="13" y="13" width="8" height="8" rx="0.6"></rect></svg>
+      </div>
+      <div class="material-num">01</div>
+      <h3>텍스처 타일</h3>
+      <p>대면적(450×900mm) 규격의 고급 석재 질감 표면으로, 넓은 복도와 다목적 공간의 내구성을 높입니다.</p>
+      <span class="material-tag">450×900mm · 내구성 표면</span>
+    </div>
+    <div class="material-card reveal">
+      <div class="material-thumb" style="background:linear-gradient(135deg,#F1EAE3 0%,#E3D6CB 100%);">
+        <svg class="float" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--terracotta);"><path d="M3 8h7v8H3z"></path><path d="M14 8h7v8h-7z"></path><path d="M10 10l4 0"></path><path d="M10 14l4 0"></path></svg>
+      </div>
+      <div class="material-num">02</div>
+      <h3>친환경 비접착 시공</h3>
+      <p>본드 없이 맞물리는 비접착식 인터락 결합 방식으로, 협력 시공 당일 빠르고 깔끔하게 시공됩니다.</p>
+      <span class="material-tag">비접착식 · 인터락 결합</span>
+    </div>
+    <div class="material-card reveal">
+      <div class="material-thumb" style="background:linear-gradient(135deg,#EFE9E4 0%,#DCD2C7 100%);">
+        <svg class="float" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--green-hover);"><rect x="3" y="7" width="18" height="4" rx="1"></rect><rect x="3" y="13" width="18" height="4" rx="1"></rect><path d="M6 11v2"></path><path d="M12 11v2"></path><path d="M18 11v2"></path></svg>
+      </div>
+      <div class="material-num">03</div>
+      <h3>소음 저감 및 내구성</h3>
+      <p>층간소음 저감 하부 폼(1.5mm)과 보행 안전과 소음 완화를 동시에 챙깁니다. 자재를 고강도 압축해 내구성이 강합니다.</p>
+      <span class="material-tag">완충 폼 1.5mm · 구조적 안정성</span>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="carousel-frame reveal">
+      <div class="carousel-viewport">
+        <img id="carousel-img" src="https://cdn.imweb.me/thumbnail/20260909/69537dc6a1b42.png" alt="스톤 텍스처 타일 시공 이미지">
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button type="button" class="carousel-arrow" id="carousel-prev" aria-label="이전 자재">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <div class="carousel-dots">
+        <button type="button" class="carousel-dot" data-mat="0" aria-current="true" aria-label="1번 자재로 이동"></button>
+        <button type="button" class="carousel-dot" data-mat="1" aria-current="false" aria-label="2번 자재로 이동"></button>
+        <button type="button" class="carousel-dot" data-mat="2" aria-current="false" aria-label="3번 자재로 이동"></button>
+      </div>
+      <button type="button" class="carousel-arrow" id="carousel-next" aria-label="다음 자재">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPACE PREVIEW ===== -->
+<section id="space-preview" class="section">
+  <div class="wrap space-preview-intro">
+    <span class="label">SPACE PREVIEW</span>
+    <h2 class="heading">노후된 바닥이,<br>이렇게 달라집니다.</h2>
+  </div>
+  <div class="wrap">
+    <div class="ba-row">
+      <div class="ba-frame reveal">
+        <span class="ba-tag before">BEFORE</span>
+        <img src="https://cdn.imweb.me/thumbnail/20260907/70934baad5417.png" alt="시공 전 바닥 사진">
+      </div>
+      <div class="ba-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><polyline points="13 5 20 12 13 19"></polyline></svg>
+      </div>
+      <div class="ba-frame reveal">
+        <span class="ba-tag after">AFTER</span>
+        <img src="https://cdn.imweb.me/thumbnail/20260907/4d27e7290f0f0.png" alt="시공 후 바닥 사진">
+      </div>
+    </div>
+    <p class="ba-caption">시공 예상 예시 : 복도 및 다목적 공용 공간<br>(실제 자재 매칭에 따라 톤은 조율될 수 있습니다)</p>
+  </div>
+</section>
+
+<!-- ===== EXPECTED EFFECT ===== -->
+<section id="expected-effect" class="section">
+  <div class="wrap">
+    <span class="label">EXPECTED EFFECT</span>
+    <h2 class="heading">바닥이 바뀌면<br>생활이 바뀝니다.</h2>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-num">01</div>
+        <div class="timeline-title">호흡기 건강 보호</div>
+        <div class="timeline-desc">노후 시멘트 마모 분진과 흙먼지를 차단하고, 항균·항곰팡이 환경을 조성합니다.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-num">02</div>
+        <div class="timeline-title">구조적 안정성</div>
+        <div class="timeline-desc">찍힘, 긁힘, 수분 변형에 대단히 강하며, 노후 시설에도 장기간 변형 없이 안정적으로 사용합니다.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-num">03</div>
+        <div class="timeline-title">위생 관리 용이성</div>
+        <div class="timeline-desc">내오염성 표면 처리로 청소가 쉬워지고, 시설 위생도가 대폭 개선됩니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OVERVIEW ===== -->
+<section id="overview" class="section">
+  <div class="wrap">
+    <span class="label">OVERVIEW</span>
+    <h2 class="heading">모집 개요<br>이렇게 진행됩니다.</h2>
+    <div class="overview-list">
+      <div class="overview-row reveal">
+        <div class="overview-key">모집 기간</div>
+        <div class="overview-val">2026년 연중상시모집</div>
+      </div>
+      <div class="overview-row reveal">
+        <div class="overview-key">모집 대상</div>
+        <div class="overview-val">비온돌 구역 바닥 개선이 필요한 전국 청소년 시설</div>
+      </div>
+      <div class="overview-row reveal">
+        <div class="overview-key">시공 확정 지역</div>
+        <div class="overview-val">[경기] 안산, 화성, 시흥, 수원, 부천<br>[지방] 대전, 천안, 논산, 공주, 거제</div>
+      </div>
+      <div class="overview-row reveal">
+        <div class="overview-key">지원 품목</div>
+        <div class="overview-val">LX하우시스 <strong>친환경 바닥재</strong> <span class="muted">(시트·롤·타일 / 벽지·단열재 제외)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section id="process" class="section">
+  <div class="wrap process-head">
+    <span class="label">PROCESS</span>
+    <h2 class="heading">신청부터 완공까지,<br>여섯 단계입니다.</h2>
+  </div>
+  <div class="wrap card-grid">
+    <div class="step-card reveal">
+      <div class="step-top">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="13" y2="17"></line></svg></div>
+        <div class="step-badge">STEP 01</div>
+      </div>
+      <h3>서식 다운로드 및 작성</h3>
+      <p>공식 신청서 서식을 내려받아 기관 정보, 비온돌 구역 여부, 개선 면적을 기재합니다.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-top">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="M4 6l8 7 8-7"></path></svg></div>
+        <div class="step-badge">STEP 02</div>
+      </div>
+      <h3>인터넷 접수</h3>
+      <p>신청서, 시설 증빙(고유번호증 등), 시공 희망 구역 사진을 첨부해 제출합니다.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-top">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><line x1="15.3" y1="15.3" x2="21" y2="21"></line></svg></div>
+        <div class="step-badge">STEP 03</div>
+      </div>
+      <h3>서류 적격 확인</h3>
+      <p>비온돌 구역 여부, 지원 필요성, 자부담·인력 협조 가능 여부를 확인합니다.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-top">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15l6-6 3 3 5-5 4 4"></path><path d="M4 20h16"></path></svg></div>
+        <div class="step-badge">STEP 04</div>
+      </div>
+      <h3>현장 실측 및 면적 확정</h3>
+      <p>재단 전문가가 방문해 실측하고, 바닥 상태 점검 후 부자재비를 확정합니다.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-top">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
+        <div class="step-badge">STEP 05</div>
+      </div>
+      <h3>부자재비 납부 및 협력 시공</h3>
+      <p>자재가 출고되며, 시설 관계자와 봉사자가 함께 협력 시공이 진행됩니다.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-top">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9"></path></svg></div>
+        <div class="step-badge">STEP 06</div>
+      </div>
+      <h3>완공 검수 및 모니터링</h3>
+      <p>최종 마감을 점검하고, 완공 이후 사후 모니터링을 진행합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NOTICE ===== -->
+<section id="notice" class="section">
+  <div class="wrap">
+    <span class="label">NOTICE</span>
+    <h2 class="heading">신청 전, 꼭<br>확인해주세요.</h2>
+    <div class="notice-list">
+      <div class="notice-row reveal">
+        <span class="notice-mark">!</span>
+        <p>보일러 배관이나 전기 온돌 패널이 매립된 난방 구역은 자재 특성상 <strong>열 변형 위험이 있어,</strong> 아쉽지만 이번 비온돌 전용 지원 대상에서는 부득이 제외하게 되었습니다.</p>
+      </div>
+      <div class="notice-row reveal">
+        <span class="notice-mark">!</span>
+        <p>더 나은 공간 변화를 위해 시공 당일 현장 정비 및 자재 운반 등을 도와주실 시설 관계자분이나 따뜻한 손길의 자원봉사자분들의 참여가 필요합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="section">
+  <div class="wrap">
+    <span class="label">FAQ</span>
+    <h2 class="heading" style="margin-bottom:20px;">자주 묻는 질문</h2>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button type="button" class="faq-q" data-faq="0" aria-expanded="false">
+          <span class="q-text">바닥재만 지원받고 저희가 자체 시공해도 되나요?</span>
+          <span class="faq-mark">+</span>
+        </button>
+        <p class="faq-a" id="faq-a-0" hidden>결과물과 안전성 확보를 위해 현장 전문 인력과 함께 협력 시공 형태로만 지원하고 있습니다.<br>다만, 시공 과정에서 시설 내 봉사자나 직원분들께서 부담 없이 손쉽게 참여하실 수 있도록 사전에 꼼꼼히 가이드해 드립니다.</p>
+      </div>
+      <div class="faq-item reveal">
+        <button type="button" class="faq-q" data-faq="1" aria-expanded="false">
+          <span class="q-text">보일러가 들어오는 일반 온돌 방이나 방바닥에도 시공이 가능한가요?</span>
+          <span class="faq-mark">+</span>
+        </button>
+        <p class="faq-a" id="faq-a-1" hidden>본 지원 사업은 비온돌 공간(복도, 다목적실, 로비 등) 전용 자재를 기준으로 합니다.<br>난방 구역의 경우 열 변형 등의 문제가 발생할 수 있어 부득이하게 대상에서 제외되오니, 신청 전 대상 구역의 난방 여부를 꼭 확인 부탁드립니다.</p>
+      </div>
+      <div class="faq-item reveal">
+        <button type="button" class="faq-q" data-faq="2" aria-expanded="false">
+          <span class="q-text">자부담 부자재비에 대해 영수증 처리가 가능한가요?</span>
+          <span class="faq-mark">+</span>
+        </button>
+        <p class="faq-a" id="faq-a-2" hidden>네, 재단 명의의 공식 영수증 및 증빙 서류 발행이 가능합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPLY ===== -->
+<section id="apply" class="section">
+  <div class="wrap">
+    <div class="apply-head">
+      <span class="label">APPLICATION</span>
+      <h2>지금, 그라운드업<br>챌린지를 신청하세요.</h2>
+    </div>
+    <div class="apply-grid">
+      <div class="apply-card beneficiary reveal">
+        <span class="part-tag">PART 01</span>
+        <h3>수혜대상 신청 (바닥재 지원)</h3>
+        <p>비온돌 공용 공간 환경 개선이 필요한 청소년 복지·돌봄 시설</p>
+        <div class="doc-list">
+          <span class="doc-list-label">구글폼 첨부 서류 (사전 준비)</span>
+          <div class="doc-row"><span class="doc-num">01</span><span>고유번호증 또는 사업자등록증·시설인가증 사본 1부</span></div>
+          <div class="doc-row"><span class="doc-num">02</span><span>건물주(소유자) 시공 동의서 (임차 공간일 경우 필수)</span></div>
+          <div class="doc-row"><span class="doc-num">03</span><span>현장 사진 및 도면 자료 (바닥 전체 전경, 노후 부위 상세 컷)</span></div>
+        </div>
+        <a href="https://docs.google.com/forms/" target="_blank" rel="noopener noreferrer" class="btn-solid pulse">수혜대상 온라인 신청하기<span class="cta-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+      </div>
+      <div class="apply-card partner reveal">
+        <span class="part-tag">PART 02</span>
+        <h3>수행기관 신청 (지역 파트너)</h3>
+        <p>수혜 시설 발굴 및 현장 협력 시공을 함께 이끌어갈 지역 기관 (시·군·구 사회복지협의회, 청소년복지 연합회 등)</p>
+        <div class="doc-list">
+          <span class="doc-list-label">구글폼 첨부 서류 (사전 준비)</span>
+          <div class="doc-row"><span class="doc-num">01</span><span>법인 허가증</span></div>
+          <div class="doc-row"><span class="doc-num">02</span><span>고유번호증 또는 사업자등록증</span></div>
+          <div class="doc-row"><span class="doc-num">03</span><span>단체 소개서</span></div>
+        </div>
+        <a href="https://docs.google.com/forms/" target="_blank" rel="noopener noreferrer" class="btn-outline-blue">수행기관 파트너십 신청하기 (구글폼)<span class="cta-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+      </div>
+    </div>
+    <p class="apply-foot">별도의 우편이나 이메일 제출 없이, 온라인 구글 설문지를 통해 정보 입력과 서류 파일 업로드가 한 번에 완료됩니다.</p>
+  </div>
+</section>
+
+<!-- ===== CHALLENGER ===== -->
+<section id="challenger" class="section">
+  <div class="wrap">
+    <div class="challenger-head">
+      <span class="challenger-eyebrow">Pave Safe Ground</span>
+      <h2>Ground Up Challenger<br>1기 봉사단 모집</h2>
+      <p>가장 낮은 바닥(Ground)부터, 청소년의 위대한 변화를 바꿉니다.<br>낡은 바닥을 걷어내고 안전한 터전을 함께 깔아줄 봉사자를 찾습니다.</p>
+    </div>
+
+    <div class="challenger-steps">
+      <div class="challenger-step reveal">
+        <span class="step-badge">STEP 01</span>
+        <div class="c-title">기초 케어</div>
+        <div class="c-desc">기존 낡은 바닥을 철거하고, 하부 청소 등 기초 바닥을 점검합니다.</div>
+      </div>
+      <div class="challenger-step reveal">
+        <span class="step-badge">STEP 02</span>
+        <div class="c-title">안전 시공</div>
+        <div class="c-desc">현장에서 바닥재를 직접 결합하여 안전한 바닥을 시공합니다.</div>
+      </div>
+      <div class="challenger-step reveal">
+        <span class="step-badge">STEP 03</span>
+        <div class="c-title">공간 재정비</div>
+        <div class="c-desc">시공 후 공간을 정돈하고, 시설 이용자를 위한 가이드를 제공합니다.</div>
+      </div>
+    </div>
+
+    <div class="recruit-box reveal">
+      <span class="recruit-title">Recruitment Details</span>
+
+      <div class="recruit-row">
+        <div class="recruit-key">모집 기간</div>
+        <div class="recruit-val">2026년 O월 O일(월) ~ O월 O일(금) 23:59까지</div>
+      </div>
+      <div class="recruit-row">
+        <div class="recruit-key">모집 인원</div>
+        <div class="recruit-val">00명 (선발 및 개별 연락)</div>
+      </div>
+      <div class="recruit-row">
+        <div class="recruit-key">모집 대상</div>
+        <div class="recruit-val">
+          <ul>
+            <li>청소년 공간 개선 및 사회공헌 활동에 관심이 많은 분</li>
+            <li>직접 손으로 공간을 바꾸는 보람을 느끼고 싶은 분</li>
+            <li>건축/인테리어/시공 분야 실무 경험 및 재능기부에 뜻이 있는 분 (초보자 가능)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="recruit-row">
+        <div class="recruit-key">활동 일정 및 장소</div>
+        <div class="recruit-val" style="display:flex;flex-direction:column;gap:10px;">
+          <div><span class="recruit-sub">OT 및 사전 교육</span>2026년 O월 O일(토) [장소: OO센터]</div>
+          <div><span class="recruit-sub">현장 시공 봉사</span>2026년 O월 O일(토) ~ O월 O일(일) [장소: 서울/경기 지역 청소년 시설]</div>
+        </div>
+      </div>
+      <div class="recruit-row">
+        <div class="recruit-key">참여 혜택</div>
+        <div class="recruit-val">
+          <ul>
+            <li>1365 / VMS 자원봉사 시간 인정</li>
+            <li>Ground Up Challenger 공식 수료증 수여</li>
+            <li>시공 전문 기술 메이킹 클래스 기회 제공 (글로벌 바닥재 브랜딩 및 시공 기초 교육)</li>
+            <li>활동 단체복 및 웰컴키트 지급</li>
+            <li>우수 활동자 표창</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="recruit-cta-wrap">
+        <a href="https://docs.google.com/forms/" target="_blank" rel="noopener noreferrer" class="btn-white pulse">Ground Up Challenger 1기 지원하기<span class="cta-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></a>
+        <p class="apply-foot" style="margin-top:16px;">별도의 서류 제출 없이, 온라인 구글 설문지를 통해 지원서 작성이 완료됩니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-logos">
+      <div class="footer-logo-col reveal">
+        <div class="footer-logo-badge"><span role="img" aria-label="LX Hausys 로고" class="logo-img" style="background-image:url('https://www.lxhausys.co.kr/assets/images/common/logo_color.png');width:108px;height:18px;"></span></div>
+        <div class="footer-role">기부 및 후원</div>
+        <div class="footer-org">LX Hausys</div>
+      </div>
+      <div class="footer-logo-col reveal">
+        <div class="footer-logo-badge"><span role="img" aria-label="프로보노국제협력재단 로고" class="logo-img" style="background-image:url('https://cdn.imweb.me/thumbnail/20260909/3da8d05323ac8.png');width:104px;height:25px;"></span></div>
+        <div class="footer-role">주관 및 총괄</div>
+        <div class="footer-org">프로보노국제협력재단</div>
+      </div>
+    </div>
+    <div class="footer-info">
+      <div class="footer-info-row"><span>주관 기관</span><span>프로보노국제협력재단 사업국</span></div>
+      <div class="footer-info-row"><span>접수·문의 이메일</span><span>probono@probono.kr</span></div>
+      <div class="footer-info-row"><span>전화번호</span><span>070-8180-7004</span></div>
+      <div class="footer-info-row"><span>운영 시간</span><span>평일 09:30~17:30 (점심 12:00~13:00 / 주말·공휴일 휴무)</span></div>
+    </div>
+    <div class="footer-fine">수행기관 신청</div>
+  </div>
+</footer>
+
+<!-- ===== STICKY BAR ===== -->
+<div id="sticky-bar">
+  <span class="msg">2026 그라운드업 챌린지 <b>연중모집</b></span>
+  <div class="actions">
+    <a href="#apply" class="sbar-btn a">수행기관 신청</a>
+    <a href="#apply" class="sbar-btn b">수혜대상 신청</a>
+    <a href="#challenger" class="sbar-btn c">봉사자 신청</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* scroll reveal: fade-in-up, staggered per parent group */
+  (function setupReveal(){
+    var items = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+    var counts = new Map();
+    items.forEach(function(el){
+      var parent = el.parentElement;
+      var idx = counts.get(parent) || 0;
+      counts.set(parent, idx + 1);
+      el.style.transitionDelay = (Math.min(idx, 6) * 90) + "ms";
+    });
+
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion || !("IntersectionObserver" in window)){
+      items.forEach(function(el){ el.classList.add("in-view"); });
+      return;
+    }
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add("in-view");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+
+    items.forEach(function(el){ io.observe(el); });
+  })();
+
+  /* self-check */
+  var checkRows = Array.prototype.slice.call(document.querySelectorAll(".check-row"));
+  var resultEl = document.getElementById("check-result");
+  var checked = [false, false, false];
+
+  function updateCheckResult(){
+    var n = checked.filter(Boolean).length;
+    var pass = n === 3;
+    resultEl.textContent = n === 0
+      ? "체크박스를 눌러 대상 여부를 확인해보세요."
+      : pass
+        ? "세 항목 모두 해당됩니다. 지원 신청이 가능합니다."
+        : n + "개 항목이 확인되었습니다. 3개 모두 충족해야 지원 대상입니다.";
+    resultEl.classList.toggle("pass", pass);
+  }
+
+  checkRows.forEach(function(row){
+    row.addEventListener("click", function(){
+      var i = Number(row.dataset.check);
+      checked[i] = !checked[i];
+      row.setAttribute("aria-pressed", String(checked[i]));
+      updateCheckResult();
+    });
+  });
+
+  /* materials carousel */
+  var materials = [
+    { src: "https://cdn.imweb.me/thumbnail/20260909/69537dc6a1b42.png", alt: "스톤 텍스처 타일 시공 이미지" },
+    { src: "https://cdn.imweb.me/thumbnail/20260909/4fa42cf38a680.png", alt: "5G 클릭형 바닥재 시공 이미지" },
+    { src: "https://cdn.imweb.me/thumbnail/20260909/0366610ce6b97.png", alt: "고쿠션 롤 시트 시공 이미지" }
+  ];
+  var matIndex = 0;
+  var carouselImg = document.getElementById("carousel-img");
+  var dots = Array.prototype.slice.call(document.querySelectorAll(".carousel-dot"));
+
+  function renderMaterial(){
+    var m = materials[matIndex];
+    carouselImg.src = m.src;
+    carouselImg.alt = m.alt;
+    dots.forEach(function(dot, i){
+      dot.setAttribute("aria-current", String(i === matIndex));
+    });
+  }
+  document.getElementById("carousel-prev").addEventListener("click", function(){
+    matIndex = (matIndex + materials.length - 1) % materials.length;
+    renderMaterial();
+  });
+  document.getElementById("carousel-next").addEventListener("click", function(){
+    matIndex = (matIndex + 1) % materials.length;
+    renderMaterial();
+  });
+  dots.forEach(function(dot){
+    dot.addEventListener("click", function(){
+      matIndex = Number(dot.dataset.mat);
+      renderMaterial();
+    });
+  });
+
+  /* faq accordion (single open) */
+  var faqButtons = Array.prototype.slice.call(document.querySelectorAll(".faq-q"));
+  var openFaq = -1;
+
+  faqButtons.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var i = Number(btn.dataset.faq);
+      var wasOpen = openFaq === i;
+      if (openFaq !== -1){
+        faqButtons[openFaq].setAttribute("aria-expanded", "false");
+        document.getElementById("faq-a-" + openFaq).hidden = true;
+      }
+      openFaq = wasOpen ? -1 : i;
+      if (openFaq !== -1){
+        faqButtons[openFaq].setAttribute("aria-expanded", "true");
+        document.getElementById("faq-a-" + openFaq).hidden = false;
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
